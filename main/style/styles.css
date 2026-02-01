@@ -61,6 +61,26 @@ body {
     color: #aaa;
 }
 
+.cta-lt-work {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 25px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cta-lt-work:hover {
+    transform: translateY(-5px);
+    background-color: #5da9ff;
+    color: white;
+    box-shadow: 0 8px 15px rgba(93, 169, 255, 0.3);
+
+    transform: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .cta {
     margin-top: 30px;
     display: inline-block;
