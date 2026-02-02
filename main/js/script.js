@@ -129,6 +129,24 @@ document.getElementById("ai-question").addEventListener("keydown", e => {
   }  
 });  
 
+// CHATBOT TOGGLE
+const chatbot = document.getElementById("chatbot-container");
+const openBtn = document.getElementById("chatbot-open");
+const closeBtn = document.getElementById("chatbot-close");
+
+// Start with chatbot open
+openBtn.style.display = "none";
+// SLIDE TOGGLE
+closeBtn.addEventListener("click", () => {
+  chatbot.classList.add("hidden");
+  openBtn.style.display = "block";
+});
+
+openBtn.addEventListener("click", () => {
+  chatbot.classList.remove("hidden");
+  openBtn.style.display = "none";
+});
+
 
 
 

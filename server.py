@@ -1,14 +1,16 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from llama_cpp import Llama
-import os
+import os 
 from datetime import datetime
+import re
+
 # ======================
 # CONFIG
 # ======================
-MODEL_PATH = r"A:\GITGIT\ripudamanss.github.io\AI MODELS\tinyllama-1.1b-chat-v1.0.Q8_0.gguf"
+MODEL_PATH = r"A:\GITGIT\ripudamanss.github.io\AI MODELS\tinyllama-1.1b-chat-v1.0.Q8_0.gguf"  # ADD PATH OF MODEL USED FOR 
 MAX_CHARS = 400
-MAX_ROUNDS = 5  # how many times model can "continue"
+MAX_ROUNDS = 3  # how many times model can "continue"
 
 # ======================
 # APP
@@ -89,22 +91,28 @@ def generate_full_answer(prompt: str, max_rounds=MAX_ROUNDS):
             prompt=current_prompt,
             temperature=0.3,
             max_tokens=120,
-            stop=["User:", "System:"]
+            stop=["User:", "System:", "Continue:"]
         )
 
         chunk = output["choices"][0]["text"]
-        full_text += chunk
 
-        # If model finished cleanly, stop
-        if chunk.strip().endswith((".", "?", "!", "\n")):
+        # Clean garbage repeats
+        chunk = re.sub(r"(Continue:)+", "", chunk, flags=re.IGNORECASE).strip()
+
+        # If nothing useful came back, stop
+        if not chunk:
             break
 
-        # Otherwise, ask it to continue
-        current_prompt += chunk + "\nContinue:\n"
+        full_text += " " + chunk
+
+        # If model finished a sentence, stop
+        if chunk.endswith((".", "?", "!", "\n")):
+            break
+
+        # Ask for continuation WITHOUT poisoning the prompt
+        current_prompt = current_prompt + full_text + "\nAssistant:"
 
     return full_text.strip()
-
-
 # ======================
 # ROUTES
 # ======================

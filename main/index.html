@@ -166,22 +166,22 @@
         <a href="mailto:damanripu8949@gmail.com" class="cta-gmail">Email Me</a>
     </section>
 
-    <!-- AI BUTTON TO CHAT
-    <button onclick="askBackend('Hello backend, are you alive?')">
-    </button>
-
-    <p id="ai-response"></p> -->
-
     <!-- AI Chatbot -->
+     <div id="chatbot-container" class="chatbot">
     <div class="ai-chat">
-        <div class="ai-header">Ask Me Anything 🤖</div>
+        <div class="ai-header">
+            <span>Ask Me Anything 🤖</span>
+            <button id="chatbot-close">✕</button>
+        </div>
+
         <div id="ai-messages"></div>
         <div class="ai-input">
             <input id="ai-question" placeholder="Ask about my projects, skills, or experience..." />
             <button onclick="askAI()">Send</button>
         </div>
     </div>
-
+    </div>
+    <button id="chatbot-open" class="chatbot-open">💬</button>
 
     <!-- FOOTER -->
     <footer class="footer">

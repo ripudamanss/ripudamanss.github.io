@@ -372,9 +372,6 @@ body {
 /* AI CHATBOT */
 /* CHAT UPGRADE */
 .ai-chat {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
   width: 320px;
   height: 420px;
   background: rgba(10, 10, 10, 0.95);
@@ -384,6 +381,7 @@ body {
   flex-direction: column;
   overflow: hidden;
 }
+
 
 .ai-header {
   padding: 12px;
@@ -450,4 +448,67 @@ body {
   padding: 0 16px;
   cursor: pointer;
   color: white;
+}
+
+/* CHATBOT OPEN BUTTON */
+.chatbot-open {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  top: auto !important;
+
+  background: linear-gradient(90deg, #5da9ff, #a855f7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(93,169,255,0.6);
+  display: none;
+  z-index: 10000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/* CHATBOT CLOSE BUTTON */
+#chatbot-close {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  background: rgba(0,0,0,0.35);
+  border: none;
+  color: white;
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s ease;
+  z-index: 10;
+}
+
+#chatbot-close:hover {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.1);
+}
+
+/* SLIDE ANIMATION */
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+.chatbot.hidden {
+  transform: translateY(120%);
+  opacity: 0;
+  pointer-events: none;
 }
