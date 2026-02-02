@@ -1,3 +1,8 @@
+const BACKEND =
+  location.hostname === "localhost" || location.hostname === "127.0.0.1"
+    ? "http://localhost:8000"
+    : "https://server-for-js.vercel.app";
+
 // SCROLL BAR
 window.addEventListener("scroll", () => {
   const scrollTop = document.documentElement.scrollTop;
@@ -47,46 +52,54 @@ function typeLoop() {
 
 typeLoop();
 
-const canvas = document.getElementById("bg-particles");
-const ctx = canvas.getContext("2d");
+// AI CHATBOT
+async function askAI() {
+  const input = document.getElementById("ai-question");
+  const messages = document.getElementById("ai-messages");
 
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
+  const userText = input.value;
+  if (!userText) return;
 
-const particles = [];
-const count = 60;
+  messages.innerHTML += `<div class="msg-user">${userText}</div>`;
+  input.value = "";
 
-for (let i = 0; i < count; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 2 + 1,
-    vx: (Math.random() - 0.5) * 0.3,
-    vy: (Math.random() - 0.5) * 0.3
+  // Thinking effect
+  const thinking = document.createElement("div");
+  thinking.className = "msg-ai";
+  thinking.innerText = "Thinking...";
+  messages.appendChild(thinking);
+
+
+  const res = await fetch(`${BACKEND}/api/ask`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question: userText })
   });
+  thinking.remove();
+
+  const data = await res.json();
+  messages.innerHTML += `<div class="msg-ai">${data.answer}</div>`;
+  messages.scrollTop = messages.scrollHeight;
 }
 
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "rgba(93,169,255,0.2)";
 
-  particles.forEach(p => {
-    p.x += p.vx;
-    p.y += p.vy;
+// Server bot handler
+async function askBackend(question) {
+  try {
+    const res = await fetch(`${BACKEND}/api/ask`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ question })
+    });
 
-    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    const data = await res.json();
+    console.log("Backend says:", data.answer);
 
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fill();
-  });
-
-  requestAnimationFrame(animateParticles);
+    // Show on site
+    document.getElementById("ai-response").innerText = data.answer;
+  } catch (err) {
+    console.error("Backend error:", err);
+  }
 }
-animateParticles();
-

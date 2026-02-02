@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src 'self' https://server-for-js.vercel.app http://localhost:8000;
+    img-src 'self' data: https:;
+    script-src 'self' 'unsafe-inline' https:;
+    style-src 'self' 'unsafe-inline' https:;
+  ">
+
     <link rel="shortcut icon" href="/main/assets/favicon_icn.png" type="image/x-icon">
     <meta charset="UTF-8" />
     <title>Ripudaman | Developer Portfolio</title>
@@ -17,7 +25,14 @@
 
 <body>
     <!-- BG GRID -->
-    <canvas id="bg-particles"></canvas>
+    <!-- <canvas id="bg-particles"></canvas>   -  not used currently -->
+
+    <!-- AURORA BG -->
+    <div class="aurora-bg">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
     <!-- SCROLL PROGRESS -->
@@ -146,10 +161,27 @@
         <h2>Contact</h2>
         <p>Let’s build something real together.</p>
         <a href="https://github.com/ripudamanss" target="_blank" class="cta">GitHub</a>
-            </div>
+        </div>
         </a>
         <a href="mailto:damanripu8949@gmail.com" class="cta-gmail">Email Me</a>
     </section>
+
+    <!-- AI BUTTON TO CHAT
+    <button onclick="askBackend('Hello backend, are you alive?')">
+    </button>
+
+    <p id="ai-response"></p> -->
+
+    <!-- AI Chatbot -->
+    <div class="ai-chat">
+        <div class="ai-header">Ask Me Anything 🤖</div>
+        <div id="ai-messages"></div>
+        <div class="ai-input">
+            <input id="ai-question" placeholder="Ask about my projects, skills, or experience..." />
+            <button onclick="askAI()">Send</button>
+        </div>
+    </div>
+
 
     <!-- FOOTER -->
     <footer class="footer">
