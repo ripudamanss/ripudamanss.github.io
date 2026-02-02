@@ -52,7 +52,8 @@ function typeLoop() {
 
 typeLoop();
 
-// AI CHATBOT
+
+// AI Chatbot
 async function askAI() {
   const input = document.getElementById("ai-question");
   const messages = document.getElementById("ai-messages");
@@ -97,9 +98,38 @@ async function askBackend(question) {
     const data = await res.json();
     console.log("Backend says:", data.answer);
 
-    // Show on site
+  
     document.getElementById("ai-response").innerText = data.answer;
   } catch (err) {
     console.error("Backend error:", err);
   }
 }
+// Auto greet of chatbot on load
+window.addEventListener("load", async () => {
+  const messages = document.getElementById("ai-messages");
+
+  try {
+    const res = await fetch(`${BACKEND}/api/greet`);
+    const data = await res.json();
+
+    messages.innerHTML += `<div class="msg-ai">${data.answer}</div>`;
+    messages.scrollTop = messages.scrollHeight;
+  } catch (err) {
+    console.log("Greeting failed");
+  }
+});
+
+
+
+// Enter Key Support
+document.getElementById("ai-question").addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    e.preventDefault(); // stops form reload if inside a form
+    askAI();
+  }  
+});  
+
+
+
+
+
