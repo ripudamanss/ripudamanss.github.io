@@ -1,6 +1,6 @@
 # 🚀 Ripudaman Singh Shekhawat — Developer Portfolio
 
-![Portfolio Preview](assets/pf.png)
+![Portfolio Preview](main/assets/pf.png)
 
 ## 👋 About Me
 
