@@ -145,7 +145,48 @@ openBtn.addEventListener("click", () => {
   openBtn.style.display = "none";
 });
 
-
-
-
-
+// Particles
+tsParticles.load("particles", {
+  background: {
+    color: "transparent"
+  },
+  fpsLimit: 60,
+  particles: {
+    number: {
+      value: 60
+    },
+    color: {
+      value: "#00ffcc"
+    },
+    links: {
+      enable: true,
+      distance: 120,
+      color: "#00ffcc",
+      opacity: 0.2,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 1
+    },
+    size: {
+      value: 2
+    },
+    opacity: {
+      value: 0.5
+    }
+  },
+  interactivity: {
+    events: {
+      onHover: {
+        enable: true,
+        mode: "repulse"
+      }
+    },
+    modes: {
+      repulse: {
+        distance: 100
+      }
+    }
+  }
+});

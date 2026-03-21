@@ -409,6 +409,13 @@ body::after {
   pointer-events: none;
 }
 
+/* Particles in BG */
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+}
+
 /* AI CHATBOT */
 /* CHAT UPGRADE */
 .ai-chat {
