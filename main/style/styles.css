@@ -329,8 +329,8 @@ body {
   width: 60vmax;
   height: 60vmax;
   border-radius: 50%;
-  filter: blur(160px);
-  opacity: 0.4;
+  filter: blur(200px);
+  opacity: 0.25;
   animation: auroraMove 25s linear infinite;
 }
 
@@ -366,6 +366,19 @@ body {
   }
   100% {
     transform: translate(0, 0) scale(1);
+  }
+}
+
+.aurora-bg span {
+  animation: auroraMove 25s linear infinite, pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.35;
   }
 }
 
