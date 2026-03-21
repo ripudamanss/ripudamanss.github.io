@@ -303,7 +303,7 @@ body {
     }
 }
 /* BACKGROUND PARTICLES - Not currently used */  
-#bg-particles {
+/* #bg-particles {
   position: fixed;
   top: 0;
   left: 0;
@@ -311,20 +311,20 @@ body {
   height: 100%;
   z-index: -2;
   pointer-events: none; /* so clicks go through */
-}
+} */
 
 /* PARTICLE STYLE AUrora */
 /* AURORA BACKGROUND */
-.aurora-bg {
+/* .aurora-bg {
   position: fixed;
   inset: 0;
   overflow: hidden;
   z-index: -5;
   background: #050505;
-}
+} */
 
 /* Glow layers */
-.aurora-bg span {
+/* .aurora-bg span {
   position: absolute;
   width: 60vmax;
   height: 60vmax;
@@ -332,10 +332,10 @@ body {
   filter: blur(200px);
   opacity: 0.25;
   animation: auroraMove 25s linear infinite;
-}
+} */
 
 /* Individual colors + timings */
-.aurora-bg span:nth-child(1) {
+/* .aurora-bg span:nth-child(1) {
   background: #5da9ff;
   top: -20%;
   left: -10%;
@@ -354,10 +354,10 @@ body {
   top: 60%;
   left: 10%;
   animation-duration: 40s;
-}
+} */
 
 /* Motion */
-@keyframes auroraMove {
+/* @keyframes auroraMove {
   0% {
     transform: translate(0, 0) scale(1);
   }
@@ -380,10 +380,10 @@ body {
   50% {
     opacity: 0.35;
   }
-}
+} */
 
 /* BG GRID */
-.grid-overlay {
+/* .grid-overlay {
   position: fixed;
   inset: 0;
   z-index: -4;
@@ -407,13 +407,39 @@ body::after {
 
   background-size: 100% 3px;
   pointer-events: none;
-}
+} */
 
-/* Particles in BG */
-#particles {
+/* Techy BG */
+.tech-bg {
   position: fixed;
   inset: 0;
-  z-index: -3;
+  z-index: -5;
+  background: #050505;
+  overflow: hidden;
+}
+
+/* GRID */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0,255,200,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,200,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* RADAR SWEEP */
+.radar {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0,255,200,0.15), transparent 60%);
+  animation: rotateRadar 8s linear infinite;
+  opacity: 0.15;
+}
+
+@keyframes rotateRadar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* AI CHATBOT */
