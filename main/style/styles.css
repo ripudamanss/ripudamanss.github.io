@@ -381,6 +381,20 @@ body {
 
   background-size: 40px 40px;
 }
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+
+  background: linear-gradient(
+    rgba(255,255,255,0.02) 50%,
+    transparent 50%
+  );
+
+  background-size: 100% 3px;
+  pointer-events: none;
+}
 
 /* AI CHATBOT */
 /* CHAT UPGRADE */
