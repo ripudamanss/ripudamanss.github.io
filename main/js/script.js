@@ -119,6 +119,34 @@ window.addEventListener("load", async () => {
   }
 });
 
+// Typing Effect
+const lines = [
+  "> initializing_system...",
+  "> loading_profile: Ripudaman",
+  "> status: ready"
+];
+
+let lineIndex = 0;
+let charIndex = 0;
+
+function typeLine() {
+  if (lineIndex >= lines.length) return;
+
+  const currentLine = lines[lineIndex];
+  const target = document.getElementById(`line${lineIndex + 1}`);
+
+  if (charIndex < currentLine.length) {
+    target.textContent += currentLine.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeLine, 30);
+  } else {
+    lineIndex++;
+    charIndex = 0;
+    setTimeout(typeLine, 300);
+  }
+}
+
+typeLine();
 
 
 // Enter Key Support
