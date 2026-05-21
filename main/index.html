@@ -442,7 +442,7 @@
             AMBIENT LIGHT CONE
         ========================= */
 
-        .lamp-glow {
+        /* .lamp-glow {
             position: absolute;
             top: 80px;
             left: 50%;
@@ -457,7 +457,36 @@
                 transform 1s ease;
             overflow: hidden;
             will-change: opacity, transform;
+        } */
+
+        .lamp-glow {
+
+            position: absolute;
+            left: 50%;
+            top: 140px;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 1;
+            border-radius: 50%;
+            overflow: hidden;
+            isolation: isolate;
+
+            /* NO BLUR FILTER */
+            background:
+                radial-gradient(circle at center,
+                    rgba(0, 217, 255, 0.14) 0%,
+                    rgba(0, 217, 255, 0.08) 28%,
+                    rgba(0, 217, 255, 0.03) 52%,
+                    transparent 74%);
+            mix-blend-mode: screen;
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
         }
+
 
         /* MAIN LIGHT */
 
@@ -476,11 +505,11 @@
                     rgba(0, 217, 255, 0.10) 25%,
                     rgba(0, 217, 255, 0.04) 50%,
                     transparent 75%);
-            filter: blur(60px);
+            /* filter: blur(60px); */
         }
 
         /* LIGHT CONE */
-        .lamp-glow::after {
+        /* .lamp-glow::after {
             content: "";
             position: absolute;
             left: 50%;
@@ -500,7 +529,27 @@
                     0% 100%);
             filter: blur(35px);
             opacity: 0.7;
+        } */
+        .lamp-glow::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 420px;
+            height: 580px;
+            background:
+                linear-gradient(to bottom,
+                    rgba(0, 217, 255, 0.08),
+                    transparent 82%);
+            clip-path:
+                polygon(48% 0%,
+                    52% 0%,
+                    100% 100%,
+                    0% 100%);
+            opacity: 0.7;
         }
+
 
         /* =========================
                     PULSE
@@ -1022,39 +1071,26 @@
             /* HIDE LOGO */
 
             .logo {
-
                 font-size: 1.1rem;
-
                 margin-bottom: 2px;
-
             }
 
             /* NAV LINKS */
 
             .nav nav {
-
                 display: flex !important;
-
                 justify-content: center;
-
                 align-items: center;
-
                 flex-wrap: wrap;
-
                 gap: 10px;
-
                 width: 100%;
-
             }
 
             /* NAV BUTTONS */
 
             .nav a {
-
                 font-size: 0.85rem;
-
                 padding: 6px 10px;
-
             }
 
             /* =========================
@@ -1062,105 +1098,64 @@
             ========================= */
 
             .hero {
-
-                padding:
-                    170px 20px 80px;
-
+                padding: 170px 20px 80px;
                 min-height: 100vh;
-
                 display: flex;
-
                 justify-content: flex-start;
-
                 align-items: flex-start;
-
                 overflow: hidden;
-
             }
 
             /* HERO LEFT */
-
             .hero-left {
-
                 width: 100%;
-
                 z-index: 5;
-
             }
 
             /* HERO TITLE */
 
             .hero h1 {
-
-                font-size:
-                    clamp(2.7rem, 15vw, 4rem);
-
+                font-size: clamp(2.7rem, 15vw, 4rem);
                 line-height: 0.95;
-
                 word-break: break-word;
-
                 margin-bottom: 18px;
-
             }
 
             /* TAG */
 
             .hero-tag {
-
                 font-size: 0.72rem;
-
                 letter-spacing: 2px;
-
             }
 
             /* TYPING */
 
             .typing-wrapper {
-
                 font-size: 1rem;
-
                 gap: 6px;
-
                 margin-bottom: 18px;
-
                 flex-wrap: wrap;
-
             }
 
             /* DESCRIPTION */
-
             .hero-description {
-
                 font-size: 0.95rem;
-
                 line-height: 1.7;
-
                 max-width: 100%;
-
             }
 
             /* BUTTONS */
-
             .hero-buttons {
-
                 flex-direction: column;
-
                 width: 100%;
-
                 gap: 12px;
-
                 margin-top: 24px;
-
             }
 
             .btn {
-
                 width: 100%;
-
                 text-align: center;
-
                 padding: 14px 16px;
-
             }
 
             /* =========================
@@ -1168,30 +1163,47 @@
             ========================= */
 
             .lamp-wrapper {
-
                 top: -120px;
-
                 right: -180px;
-
-                transform:
-                    scale(0.42);
-
+                transform: scale(0.42);
                 opacity: 0.8;
+            }
 
+            /* LAMP POSITION */
+
+            .lamp-wrapper {
+                right: -120px;
+                top: -80px;
+            }
+
+            /* SCALE ONLY LAMP */
+
+            .lamp-container {
+                transform:
+                    translateX(-50%) scale(0.42);
+                transform-origin:
+                    top center;
             }
 
             /* SMALLER GLOW */
 
             .lamp-glow {
+                width: 320px;
+                height: 320px;
+                top: 120px;
+                opacity: 0.35;
+            }
 
-                width: 300px;
-                height: 300px;
+            /* SMALLER WIRE */
 
-                filter:
-                    blur(35px);
+            .wire {
+                height: 350px;
+            }
 
-                opacity: 0.4;
-
+            /* SMALLER BULB */
+            .lamp {
+                width: 90px;
+                height: 110px;
             }
 
             /* =========================
@@ -1199,125 +1211,89 @@
             ========================= */
 
             .section {
-
                 padding: 70px 20px;
-
             }
 
             /* CARDS */
-
             .glass-card {
-
                 padding: 24px 18px;
-
                 border-radius: 20px;
-
             }
 
             /* TITLES */
 
             .section-title {
-
                 font-size: 1.8rem;
-
                 margin-bottom: 20px;
-
             }
 
             /* =========================
-SKILLS
-========================= */
+                    SKILLS
+            ========================= */
 
             .skills-grid {
-
                 gap: 10px;
-
             }
 
             .skill {
-
                 padding: 10px 14px;
-
                 font-size: 0.85rem;
-
             }
 
             /* =========================
-PROJECTS
-========================= */
+                    PROJECTS
+            ========================= */
 
             .projects-grid {
-
                 grid-template-columns: 1fr;
-
                 gap: 18px;
-
             }
 
             .project-card {
-
                 padding: 22px;
-
             }
 
             /* =========================
-FOOTER
-========================= */
+                    FOOTER
+            ========================= */
 
             .footer {
-
                 font-size: 0.85rem;
-
                 padding: 24px 18px;
-
             }
 
             /* =========================
-DISABLE CUSTOM CURSOR
-========================= */
+                    DISABLE CUSTOM CURSOR
+            ========================= */
 
             .custom-cursor,
             .cursor-dot {
-
                 display: none !important;
-
             }
-
             body {
-
                 cursor: auto;
-
             }
 
             /* =========================
-REDUCE GPU LOAD
-========================= */
+                REDUCE GPU LOAD
+            ========================= */
 
             .aurora {
-
                 filter: blur(45px);
-
                 opacity: 0.18;
-
             }
 
             /* LIGHTER GRID */
 
             .grid-bg {
-
                 opacity: 0.35;
-
             }
 
             /* LESS HEAVY GLOW */
-
             .hero h1,
             .gradient-text {
-
                 text-shadow: none !important;
-
             }
-
             /* BLACKOUT FIX */
 
             .blackout .hero-description,
@@ -1999,30 +1975,20 @@ REDUCE GPU LOAD
         SCROLL REVEAL
         ========================= */
 
-        const reveals =
-            document.querySelectorAll(".reveal");
-
-        const observer =
-            new IntersectionObserver((entries) => {
-
-                entries.forEach((entry) => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("active");
-
-                    }
-
-                });
-
-            }, {
-                threshold: 0.15
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
             });
 
+        }, {
+            threshold: 0.15
+        });
+
         reveals.forEach((el) => {
-
             observer.observe(el);
-
         });
 
     </script>
