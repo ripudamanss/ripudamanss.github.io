@@ -388,6 +388,7 @@
             justify-content: center;
             align-items: flex-start;
             cursor: grab;
+            border-radius: 50px;
         }
 
         /* =========================
@@ -442,23 +443,6 @@
             AMBIENT LIGHT CONE
         ========================= */
 
-        /* .lamp-glow {
-            position: absolute;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 900px;
-            height: 700px;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 1;
-            transition:
-                opacity 1s ease,
-                transform 1s ease;
-            overflow: hidden;
-            will-change: opacity, transform;
-        } */
-
         .lamp-glow {
 
             position: absolute;
@@ -485,69 +469,6 @@
             transition:
                 opacity 1s ease,
                 transform 1s ease;
-        }
-
-
-        /* MAIN LIGHT */
-
-        .lamp-glow::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 700px;
-            border-radius: 50%;
-            background:
-                radial-gradient(circle,
-                    rgba(0, 217, 255, 0.18) 0%,
-                    rgba(0, 217, 255, 0.10) 25%,
-                    rgba(0, 217, 255, 0.04) 50%,
-                    transparent 75%);
-            /* filter: blur(60px); */
-        }
-
-        /* LIGHT CONE */
-        /* .lamp-glow::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: -20px;
-            transform: translateX(-50%);
-            width: 500px;
-            height: 650px;
-            background:
-                linear-gradient(to bottom,
-                    rgba(0, 217, 255, 0.18),
-                    rgba(0, 217, 255, 0.08),
-                    transparent 75%);
-            clip-path:
-                polygon(45% 0%,
-                    55% 0%,
-                    100% 100%,
-                    0% 100%);
-            filter: blur(35px);
-            opacity: 0.7;
-        } */
-        .lamp-glow::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-            width: 420px;
-            height: 580px;
-            background:
-                linear-gradient(to bottom,
-                    rgba(0, 217, 255, 0.08),
-                    transparent 82%);
-            clip-path:
-                polygon(48% 0%,
-                    52% 0%,
-                    100% 100%,
-                    0% 100%);
-            opacity: 0.7;
         }
 
 
@@ -1053,7 +974,7 @@
 
                 top: 10px;
                 left: 50%;
-
+                z-index: 1000;
                 transform: translateX(-50%);
 
                 width: 92%;
@@ -1162,7 +1083,81 @@
                         LAMP
             ========================= */
 
+            /* =========================
+LAMP WRAPPER
+========================= */
+
             .lamp-wrapper {
+
+                position: absolute;
+
+                top: 95px;
+
+                right: -30px;
+
+                width: 240px;
+                height: 240px;
+
+                z-index: 1;
+
+                pointer-events: none;
+
+            }
+
+            /* =========================
+LAMP CONTAINER
+========================= */
+
+            .lamp-container {
+
+                transform:
+                    translateX(-50%) scale(0.48);
+
+                transform-origin:
+                    top center;
+
+                pointer-events: auto;
+
+            }
+
+            /* =========================
+GLOW
+========================= */
+
+            .lamp-glow {
+
+                width: 240px;
+                height: 240px;
+
+                top: 70px;
+
+                opacity: 0.28;
+
+            }
+
+            /* =========================
+WIRE
+========================= */
+
+            .wire {
+
+                height: 90px;
+
+            }
+
+            /* =========================
+LAMP BODY
+========================= */
+
+            .lamp {
+
+                width: 80px;
+                height: 90px;
+
+            }
+
+
+            /* .lamp-wrapper {
                 top: -120px;
                 right: -180px;
                 transform: scale(0.42);
@@ -1206,6 +1201,7 @@
                 height: 110px;
             }
 
+            */
             /* =========================
                     SECTIONS
             ========================= */
@@ -1270,6 +1266,7 @@
             .cursor-dot {
                 display: none !important;
             }
+
             body {
                 cursor: auto;
             }
@@ -1294,6 +1291,7 @@
             .gradient-text {
                 text-shadow: none !important;
             }
+
             /* BLACKOUT FIX */
 
             .blackout .hero-description,
