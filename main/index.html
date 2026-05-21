@@ -58,6 +58,33 @@
             box-sizing: border-box;
         }
 
+
+        /* =========================
+                SCROLL REVEAL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(80px);
+            filter: blur(10px);
+            transition:
+                opacity 1s ease,
+                transform 1s ease,
+                filter 1s ease;
+            will-change:
+                transform, opacity;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0px);
+            filter: blur(0px);
+        }
+
+        .reveal:not(.active) *{
+            animation-play-state:paused !important;
+        }
+
         :root {
             --bg: #050816;
             --text: #ffffff;
@@ -140,6 +167,7 @@
                 background 2.5s ease,
                 transform 3s ease,
                 opacity 2s ease;
+            will-change: transform, opacity;
         }
 
         .aurora:nth-child(1) {
@@ -297,593 +325,213 @@
             width: 56%;
         }
 
-        /* String of Lamp */
 
         /* =========================
-            LAMP SYSTEM
-        /* ========================= */
-        /*.lamp-container {
+            LAMP CONTAINER
+        ========================= */
 
+        .lamp-container {
             position: absolute;
-
-            right: 12%;
-            top: 0;
-
+            right: 10%;
+            top: -40px;
             display: flex;
             flex-direction: column;
             align-items: center;
-
             z-index: 50;
-
             transform-origin: top center;
-
-            transition:
-                transform 0.25s ease;
-
-        } */
+        }
 
         /* =========================
                     WIRE
         ========================= */
 
-        /* .wire {
-
-            width: 3px;
-            height: 180px;
-
-            background:
-                linear-gradient(to bottom,
-                    rgba(255, 255, 255, 0.1),
-                    rgba(255, 255, 255, 0.6));
-
-            transition:
-                height 0.25s ease;
-
-        } */
-
-        /* =========================
-                    LAMP
-        ========================= */
-        /* 
-        .lamp {
-
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background:
-                radial-gradient(circle,
-                    #00d9ff,
-                    #007cf0);
-            position: relative;
-            cursor: grab;
-            box-shadow:
-                0 0 80px rgba(0, 217, 255, 0.7),
-                0 0 160px rgba(0, 217, 255, 0.35);
-            transition:
-                background 0.5s ease,
-                box-shadow 0.5s ease;
-        } */
-
-        /* =========================
-                LAMP GLOW
-        ========================= */
-        /* 
-        .lamp-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform:
-                translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background:
-                radial-gradient(circle,
-                    rgba(0, 217, 255, 0.22),
-                    transparent 70%);
-            pointer-events: none;
-            transition:
-                opacity 1s ease;
-        } */
-
-        /* =========================
-                SWING
-        ========================= */
-
-        /* .swing {
-            animation:
-                swing 2s ease-in-out;
-        }
-
-        @keyframes swing {
-            0% {
-                transform: rotate(10deg);
-            }
-
-            25% {
-                transform: rotate(-8deg);
-            }
-
-            50% {
-                transform: rotate(6deg);
-            }
-
-            75% {
-                transform: rotate(-4deg);
-            }
-
-            100% {
-                transform: rotate(0deg);
-            }
-        }
- */
-        /* .blackout {
-            background: #000 !important;
-            transition:
-                background 10s ease;
-        } */
-        /* body {
-            transition:
-                background 1.4s cubic-bezier(.22, 1, .36, 1),
-                color 1.2s ease;
-        }
- */
-        /* REMOVE BG */
-        /* body:not(.blackout) .hero-description,
-        body:not(.blackout) .typing-wrapper,
-        body:not(.blackout) .btn,
-        body:not(.blackout) nav {
-            transition-delay: 0.25s;
-        }
-
-        .grid-bg,
-        .aurora-container,
-        .lamp-glow,
-        .hero-description,
-        .typing-wrapper,
-        .btn,
-        .section,
-        nav,
-        .hero h1,
-        .logo {
-            transition:
-                opacity 1.4s cubic-bezier(.22, 1, .36, 1),
-                transform 1.2s cubic-bezier(.22, 1, .36, 1),
-                filter 1.4s ease,
-                text-shadow 1.4s ease,
-                background 1.4s ease;
-        }
-
-        body:not(.blackout) .aurora-container {
-            opacity: 1;
-            filter: blur(0px);
-            transform: scale(1);
-        }
-
-        .blackout .aurora-container {
-            opacity: 0;
-            filter: blur(20px);
-            transform: scale(1.08);
-        } */
-
-        /* DIM UI */
-
-        /* .blackout .hero-description,
-        .blackout .typing-wrapper,
-        .blackout .btn,
-        .blackout .section,
-        .blackout nav {
-            opacity: 0.05;
-            transition:
-                1s ease;
-        }
-
-        .blackout h1 {
-            line-height: 0.92;
-            color: white;
-            font-weight: 900;
-        }
- */
-        /* BUILDING + INFRASTRUCTURE */
-
-        /* .blackout h1 {
-            text-shadow:
-                0 0 4px #00d9ff,
-                0 0 10px #00d9ff,
-                0 0 20px rgba(0, 217, 255, 0.8),
-                0 0 40px rgba(0, 217, 255, 0.45);
-        }
- */
-        /* INTELLIGENT */
-
-        /* .blackout .gradient-text {
-            transition: 2s ease;
-            background: none !important;
-            -webkit-text-fill-color: #ff3b3b;
-            color: #ff3b3b;
-            text-shadow:
-                0 0 4px #ff3b3b,
-                0 0 10px #ff3b3b,
-                0 0 22px rgba(255, 0, 0, 0.8),
-                0 0 40px rgba(255, 0, 0, 0.45);
-        }
- */
-        /* OTHER WORDS BLUE */
-
-        /* .blackout h1 {
-            text-shadow:
-                0 0 10px #00d9ff,
-                0 0 30px #00d9ff,
-                0 0 60px #00d9ff,
-                0 0 120px #00d9ff;
-        }
-
-        .blackout .logo {
-            position: relative;
-            color: #ffffff;
-            text-shadow:
-                0 0 4px #fff,
-                0 0 10px #00d9ff,
-                0 0 20px #00d9ff,
-                0 0 40px rgba(0, 217, 255, 0.9);
-            z-index: 10;
-        } */
-
-        /* =========================
-LAMP SYSTEM
-========================= */
-
-        /* =========================
-LAMP CONTAINER
-========================= */
-
-        .lamp-container {
-
-            position: absolute;
-
-            right: 10%;
-            top: -40px;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            z-index: 50;
-
-            transform-origin: top center;
-
-        }
-
-        /* =========================
-WIRE
-========================= */
-
         .wire {
-
             position: relative;
-
             width: 4px;
             height: 220px;
-
             border-radius: 20px;
-
             background:
-
                 repeating-linear-gradient(to bottom,
                     #d8d8d8 0px,
                     #7b7b7b 8px,
                     #d8d8d8 16px);
-
             box-shadow:
                 0 0 6px rgba(255, 255, 255, 0.15);
-
         }
 
         /* TOP METAL HOLDER */
-
         .wire::before {
-
             content: "";
-
             position: absolute;
-
             top: -18px;
             left: 50%;
-
-            transform:
-                translateX(-50%);
-
+            transform: translateX(-50%);
             width: 20px;
             height: 20px;
-
             border-radius: 50%;
-
             background:
-
                 linear-gradient(145deg,
                     #d9d9d9,
                     #555);
-
         }
 
         /* =========================
-LAMP BODY
-========================= */
+                LAMP BODY
+        ========================= */
 
         .lamp {
-
             position: relative;
             isolation: isolate;
             width: 140px;
             height: 160px;
-
             display: flex;
             justify-content: center;
             align-items: flex-start;
-
             cursor: grab;
-
         }
 
         /* =========================
-LAMP SHADE
-========================= */
+                LAMP SHADE
+        ========================= */
 
         .lamp::before {
-
             content: "";
-
             position: absolute;
-
             top: 0;
-
             width: 120px;
             height: 70px;
-
             border-radius:
                 30px 30px 18px 18px;
-
             background:
-
                 linear-gradient(145deg,
                     #151515,
                     #050505);
-
             border:
                 1px solid rgba(255, 255, 255, 0.06);
-
             box-shadow:
-
                 0 15px 30px rgba(0, 0, 0, 0.55),
-
                 inset 0 2px 8px rgba(255, 255, 255, 0.06);
-
             z-index: 5;
-
         }
 
         /* =========================
-LIGHT BULB
-========================= */
+                LIGHT BULB
+        ========================= */
 
         .lamp::after {
-
             content: "";
-
             position: absolute;
-
             top: 42px;
-
             width: 78px;
             height: 78px;
-
             border-radius: 50%;
-
             background:
-
                 radial-gradient(circle at 35% 35%,
                     #ffffff,
                     #00d9ff 35%,
                     #007cf0 70%);
-
             box-shadow:
-
                 0 0 40px rgba(0, 217, 255, 0.85),
                 0 0 90px rgba(0, 217, 255, 0.55),
                 0 0 180px rgba(0, 217, 255, 0.35);
-
-            animation:
-                bulbPulse 3s ease-in-out infinite;
-
+            animation: bulbPulse 3s ease-in-out infinite;
             z-index: 2;
-
         }
 
         /* =========================
-AMBIENT LIGHT CONE
-========================= */
-
-        /* .lamp-glow {
-
-            position: absolute;
-
-            top: 70px;
-            left: 50%;
-
-            transform:
-                translateX(-50%);
-
-            width: 850px;
-            height: 850px;
-
-            background:
-
-                conic-gradient(from 180deg at 50% 0%,
-                    rgba(0, 217, 255, 0.22),
-                    rgba(0, 217, 255, 0.08),
-                    transparent 55%);
-
-            filter:
-                blur(60px);
-
-            opacity: 1;
-
-            pointer-events: none;
-
-            z-index: 1;
-
-            transition:
-                1s ease;
-
-        } */
+            AMBIENT LIGHT CONE
+        ========================= */
 
         .lamp-glow {
-
             position: absolute;
-
             top: 80px;
             left: 50%;
-
-            transform:
-                translateX(-50%);
-
+            transform: translateX(-50%);
             width: 900px;
             height: 700px;
-
             pointer-events: none;
-
             z-index: 1;
-
             opacity: 1;
-
             transition:
                 opacity 1s ease,
                 transform 1s ease;
-
             overflow: hidden;
-
+            will-change: opacity, transform;
         }
 
         /* MAIN LIGHT */
 
         .lamp-glow::before {
-
             content: "";
-
             position: absolute;
-
             left: 50%;
             top: 0;
-
-            transform:
-                translateX(-50%);
-
+            transform: translateX(-50%);
             width: 700px;
             height: 700px;
-
             border-radius: 50%;
-
             background:
-
                 radial-gradient(circle,
                     rgba(0, 217, 255, 0.18) 0%,
                     rgba(0, 217, 255, 0.10) 25%,
                     rgba(0, 217, 255, 0.04) 50%,
                     transparent 75%);
-
-            filter:
-                blur(60px);
-
+            filter: blur(60px);
         }
 
         /* LIGHT CONE */
-
         .lamp-glow::after {
-
             content: "";
-
             position: absolute;
-
             left: 50%;
             top: -20px;
-
-            transform:
-                translateX(-50%);
-
+            transform: translateX(-50%);
             width: 500px;
             height: 650px;
-
             background:
-
                 linear-gradient(to bottom,
                     rgba(0, 217, 255, 0.18),
                     rgba(0, 217, 255, 0.08),
                     transparent 75%);
-
             clip-path:
                 polygon(45% 0%,
                     55% 0%,
                     100% 100%,
                     0% 100%);
-
-            filter:
-                blur(35px);
-
+            filter: blur(35px);
             opacity: 0.7;
-
         }
 
         /* =========================
-PULSE
-========================= */
+                    PULSE
+        ======================== */
 
         @keyframes bulbPulse {
-
             0% {
-
-                transform:
-                    scale(1);
-
-                filter:
-                    brightness(1);
-
+                transform: scale(1);
+                filter: brightness(1);
             }
 
             50% {
-
-                transform:
-                    scale(1.08);
-
-                filter:
-                    brightness(1.15);
-
+                transform: scale(1.08);
+                filter: brightness(1.15);
             }
 
             100% {
-
-                transform:
-                    scale(1);
-
-                filter:
-                    brightness(1);
-
+                transform: scale(1);
+                filter: brightness(1);
             }
-
         }
 
         /* =========================
-SWING
-========================= */
+                SWING
+        ========================= */
 
         .swing {
-
-            animation:
-                swing 2s ease-in-out;
-
+            animation: swing 2s ease-in-out;
         }
 
         @keyframes swing {
-
             0% {
                 transform: rotate(10deg);
             }
@@ -903,15 +551,13 @@ SWING
             100% {
                 transform: rotate(0deg);
             }
-
         }
 
         /* =========================
-BLACKOUT MODE
-========================= */
+                BLACKOUT MODE
+        ========================= */
 
         body {
-
             transition:
                 background 1.4s cubic-bezier(.22, 1, .36, 1),
                 color 1.2s ease;
@@ -921,23 +567,15 @@ BLACKOUT MODE
         /* AURORA RETURN */
 
         body:not(.blackout) .aurora-container {
-
             opacity: 1;
-
             filter: blur(0px);
-
             transform: scale(1);
-
         }
 
         .blackout .aurora-container {
-
             opacity: 0;
-
             filter: blur(20px);
-
             transform: scale(1.08);
-
         }
 
         /* UI RETURN */
@@ -1329,6 +967,21 @@ BLACKOUT MODE
                 RESPONSIVE
         ========================= */
 
+        @media(pointer:coarse) {
+
+            .custom-cursor,
+            .cursor-dot {
+
+                display: none !important;
+
+            }
+
+            body {
+                cursor: auto;
+            }
+
+        }
+
         @media(max-width:770px) {
 
             .custom-cursor,
@@ -1532,7 +1185,7 @@ BLACKOUT MODE
 
         </section>
 
-        <section class="section" id="about">
+        <section class="section reveal" id="about">
 
             <div class="glass-card">
 
@@ -1553,7 +1206,7 @@ BLACKOUT MODE
 
         </section>
 
-        <section class="section" id="skills">
+        <section class="section reveal" id="skills">
 
             <h2 class="section-title">
                 Skills
@@ -1600,7 +1253,7 @@ BLACKOUT MODE
 
         </section>
 
-        <section class="section" id="projects">
+        <section class="section reveal" id="projects">
 
             <h2 class="section-title">
                 Projects
@@ -1692,7 +1345,7 @@ BLACKOUT MODE
 
         </section>
 
-        <section class="section" id="contact">
+        <section class="section reveal" id="contact">
 
             <div class="glass-card">
 
@@ -2036,6 +1689,41 @@ BLACKOUT MODE
 
     <audio id="switchOnSound" src="./assets/switch_on.mp3"></audio>
     <audio id="switchOffSound" src="./assets/switch_off.mp3"></audio>
+
+    <script>
+
+        /* =========================
+        SCROLL REVEAL
+        ========================= */
+
+        const reveals =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver((entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("active");
+
+                    }
+
+                });
+
+            }, {
+                threshold: 0.15
+            });
+
+        reveals.forEach((el) => {
+
+            observer.observe(el);
+
+        });
+
+    </script>
+
 </body>
 
 </html>
