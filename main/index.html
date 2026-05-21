@@ -2,194 +2,2040 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    connect-src 'self' https://server-for-js.vercel.app http://localhost:8000;
-    img-src 'self' data: https:;
-    script-src 'self' 'unsafe-inline' https:;
-    style-src 'self' 'unsafe-inline' https:;
-  ">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripudaman | AI Developer & Full Stack Engineer</title>
+    <meta name="description"
+        content="Ripudaman is an AI Developer, Full Stack Engineer, and Builder creating AI systems, automation projects, computer vision applications, and scalable technologies.">
+    <meta name="keywords"
+        content="Ripudaman, AI Developer, Full Stack Developer, Machine Learning Engineer, Computer Vision, YOLO, OpenCV, AI Portfolio">
+    <meta name="author" content="Ripudaman">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Ripudaman | AI Systems Engineer">
+    <meta property="og:description" content="AI Developer • Full Stack Engineer • Builder of Intelligent Systems">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/preview.png">
+    <meta property="og:url" content="https://ripudaman.netlify.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ripudaman | AI Systems Engineer">
+
+    <meta name="twitter:description"
+        content="AI Developer • Full Stack Engineer • Computer Vision • Intelligent Systems">
+
+    <meta name="twitter:image" content="assets/preview.png">
 
     <link rel="shortcut icon" href="/main/assets/favicon_icn.png" type="image/x-icon">
-    <meta charset="UTF-8" />
-    <title>Ripudaman | Developer Portfolio</title>
-    <!-- SEO -->
-    <meta name="description" content="Ripudaman – AI Developer, Full Stack Engineer & Tech Builder">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="style/styles.css">
+    <script type="application/ld+json">
+        {
+        "@context":"https://schema.org",
+        "@type":"Person",
+        "name":"Ripudaman",
+        "url":"https://ripudaman.netlify.app",
+        "jobTitle":"AI Developer & Full Stack Engineer",
+        "sameAs":[
+        "https://github.com/ripudamanss"
+        ],
+        "knowsAbout":[
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Computer Vision",
+        "YOLO",
+        "OpenCV",
+        "Full Stack Development",
+        "IoT Systems"
+        ]
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #050816;
+            --text: #ffffff;
+            --muted: #aeb6d3;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+            cursor: none;
+        }
+
+        /* =========================
+                    NOISE
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(rgba(255, 255, 255, 0.04) 1px,
+                    transparent 1px);
+            background-size: 3px 3px;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* =========================
+                    GRID
+        ========================= */
+
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px),
+                linear-gradient(90deg,
+                    rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px);
+            background-size: 60px 60px;
+            z-index: -10;
+            mask-image:
+                radial-gradient(circle at center,
+                    black 20%,
+                    transparent 100%);
+        }
+
+        /* =========================
+                AURORA BG
+        ========================= */
+
+        .aurora-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -5;
+        }
+
+        .aurora {
+            position: absolute;
+            width: 850px;
+            height: 850px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.38;
+            mix-blend-mode: screen;
+            transition:
+                background 2.5s ease,
+                transform 3s ease,
+                opacity 2s ease;
+        }
+
+        .aurora:nth-child(1) {
+            top: -250px;
+            left: -180px;
+            background: #5b5fff;
+            animation:
+                float1 18s infinite alternate ease-in-out;
+        }
+
+        .aurora:nth-child(2) {
+            bottom: -250px;
+            right: -180px;
+            background: #00d9ff;
+            animation:
+                float2 22s infinite alternate ease-in-out;
+        }
+
+        .aurora:nth-child(3) {
+            top: 30%;
+            left: 35%;
+            background: #9f5cff;
+            animation:
+                float3 28s infinite alternate ease-in-out;
+        }
+
+        @keyframes float1 {
+            from {
+                transform:
+                    translate(0px, 0px) scale(1);
+            }
+
+            to {
+                transform:
+                    translate(120px, -90px) scale(1.25);
+            }
+
+        }
+
+        @keyframes float2 {
+            from {
+                transform:
+                    translate(0px, 0px) scale(1);
+            }
+
+            to {
+                transform:
+                    translate(-140px, 100px) scale(1.2);
+            }
+        }
+
+        @keyframes float3 {
+            from {
+                transform:
+                    translate(0px, 0px) scale(1);
+            }
+
+            to {
+                transform:
+                    translate(70px, -120px) scale(1.15);
+            }
+        }
+
+        /* =========================
+                SCROLLBAR
+        ========================= */
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050816;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background:
+                linear-gradient(#5b5fff,
+                    #00d9ff);
+            border-radius: 50px;
+        }
+
+        /* =========================
+                NAVBAR
+        ========================= */
+        .nav {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 60px;
+            z-index: 99999;
+            background: rgba(8, 10, 25, 0.55);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .nav nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+
+        }
+
+        .nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background: #00d9ff;
+            transition: 0.3s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================
+                    HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            position: relative;
+            padding-top: 120px;
+        }
+
+        .hero-left {
+            width: 56%;
+        }
+
+        /* String of Lamp */
+
+        /* =========================
+            LAMP SYSTEM
+        /* ========================= */
+        /*.lamp-container {
+
+            position: absolute;
+
+            right: 12%;
+            top: 0;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            z-index: 50;
+
+            transform-origin: top center;
+
+            transition:
+                transform 0.25s ease;
+
+        } */
+
+        /* =========================
+                    WIRE
+        ========================= */
+
+        /* .wire {
+
+            width: 3px;
+            height: 180px;
+
+            background:
+                linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0.1),
+                    rgba(255, 255, 255, 0.6));
+
+            transition:
+                height 0.25s ease;
+
+        } */
+
+        /* =========================
+                    LAMP
+        ========================= */
+        /* 
+        .lamp {
+
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle,
+                    #00d9ff,
+                    #007cf0);
+            position: relative;
+            cursor: grab;
+            box-shadow:
+                0 0 80px rgba(0, 217, 255, 0.7),
+                0 0 160px rgba(0, 217, 255, 0.35);
+            transition:
+                background 0.5s ease,
+                box-shadow 0.5s ease;
+        } */
+
+        /* =========================
+                LAMP GLOW
+        ========================= */
+        /* 
+        .lamp-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:
+                translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle,
+                    rgba(0, 217, 255, 0.22),
+                    transparent 70%);
+            pointer-events: none;
+            transition:
+                opacity 1s ease;
+        } */
+
+        /* =========================
+                SWING
+        ========================= */
+
+        /* .swing {
+            animation:
+                swing 2s ease-in-out;
+        }
+
+        @keyframes swing {
+            0% {
+                transform: rotate(10deg);
+            }
+
+            25% {
+                transform: rotate(-8deg);
+            }
+
+            50% {
+                transform: rotate(6deg);
+            }
+
+            75% {
+                transform: rotate(-4deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+ */
+        /* .blackout {
+            background: #000 !important;
+            transition:
+                background 10s ease;
+        } */
+        /* body {
+            transition:
+                background 1.4s cubic-bezier(.22, 1, .36, 1),
+                color 1.2s ease;
+        }
+ */
+        /* REMOVE BG */
+        /* body:not(.blackout) .hero-description,
+        body:not(.blackout) .typing-wrapper,
+        body:not(.blackout) .btn,
+        body:not(.blackout) nav {
+            transition-delay: 0.25s;
+        }
+
+        .grid-bg,
+        .aurora-container,
+        .lamp-glow,
+        .hero-description,
+        .typing-wrapper,
+        .btn,
+        .section,
+        nav,
+        .hero h1,
+        .logo {
+            transition:
+                opacity 1.4s cubic-bezier(.22, 1, .36, 1),
+                transform 1.2s cubic-bezier(.22, 1, .36, 1),
+                filter 1.4s ease,
+                text-shadow 1.4s ease,
+                background 1.4s ease;
+        }
+
+        body:not(.blackout) .aurora-container {
+            opacity: 1;
+            filter: blur(0px);
+            transform: scale(1);
+        }
+
+        .blackout .aurora-container {
+            opacity: 0;
+            filter: blur(20px);
+            transform: scale(1.08);
+        } */
+
+        /* DIM UI */
+
+        /* .blackout .hero-description,
+        .blackout .typing-wrapper,
+        .blackout .btn,
+        .blackout .section,
+        .blackout nav {
+            opacity: 0.05;
+            transition:
+                1s ease;
+        }
+
+        .blackout h1 {
+            line-height: 0.92;
+            color: white;
+            font-weight: 900;
+        }
+ */
+        /* BUILDING + INFRASTRUCTURE */
+
+        /* .blackout h1 {
+            text-shadow:
+                0 0 4px #00d9ff,
+                0 0 10px #00d9ff,
+                0 0 20px rgba(0, 217, 255, 0.8),
+                0 0 40px rgba(0, 217, 255, 0.45);
+        }
+ */
+        /* INTELLIGENT */
+
+        /* .blackout .gradient-text {
+            transition: 2s ease;
+            background: none !important;
+            -webkit-text-fill-color: #ff3b3b;
+            color: #ff3b3b;
+            text-shadow:
+                0 0 4px #ff3b3b,
+                0 0 10px #ff3b3b,
+                0 0 22px rgba(255, 0, 0, 0.8),
+                0 0 40px rgba(255, 0, 0, 0.45);
+        }
+ */
+        /* OTHER WORDS BLUE */
+
+        /* .blackout h1 {
+            text-shadow:
+                0 0 10px #00d9ff,
+                0 0 30px #00d9ff,
+                0 0 60px #00d9ff,
+                0 0 120px #00d9ff;
+        }
+
+        .blackout .logo {
+            position: relative;
+            color: #ffffff;
+            text-shadow:
+                0 0 4px #fff,
+                0 0 10px #00d9ff,
+                0 0 20px #00d9ff,
+                0 0 40px rgba(0, 217, 255, 0.9);
+            z-index: 10;
+        } */
+
+        /* =========================
+LAMP SYSTEM
+========================= */
+
+        /* =========================
+LAMP CONTAINER
+========================= */
+
+        .lamp-container {
+
+            position: absolute;
+
+            right: 10%;
+            top: -40px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            z-index: 50;
+
+            transform-origin: top center;
+
+        }
+
+        /* =========================
+WIRE
+========================= */
+
+        .wire {
+
+            position: relative;
+
+            width: 4px;
+            height: 220px;
+
+            border-radius: 20px;
+
+            background:
+
+                repeating-linear-gradient(to bottom,
+                    #d8d8d8 0px,
+                    #7b7b7b 8px,
+                    #d8d8d8 16px);
+
+            box-shadow:
+                0 0 6px rgba(255, 255, 255, 0.15);
+
+        }
+
+        /* TOP METAL HOLDER */
+
+        .wire::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -18px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            width: 20px;
+            height: 20px;
+
+            border-radius: 50%;
+
+            background:
+
+                linear-gradient(145deg,
+                    #d9d9d9,
+                    #555);
+
+        }
+
+        /* =========================
+LAMP BODY
+========================= */
+
+        .lamp {
+
+            position: relative;
+            isolation: isolate;
+            width: 140px;
+            height: 160px;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            cursor: grab;
+
+        }
+
+        /* =========================
+LAMP SHADE
+========================= */
+
+        .lamp::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            width: 120px;
+            height: 70px;
+
+            border-radius:
+                30px 30px 18px 18px;
+
+            background:
+
+                linear-gradient(145deg,
+                    #151515,
+                    #050505);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.06);
+
+            box-shadow:
+
+                0 15px 30px rgba(0, 0, 0, 0.55),
+
+                inset 0 2px 8px rgba(255, 255, 255, 0.06);
+
+            z-index: 5;
+
+        }
+
+        /* =========================
+LIGHT BULB
+========================= */
+
+        .lamp::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: 42px;
+
+            width: 78px;
+            height: 78px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(circle at 35% 35%,
+                    #ffffff,
+                    #00d9ff 35%,
+                    #007cf0 70%);
+
+            box-shadow:
+
+                0 0 40px rgba(0, 217, 255, 0.85),
+                0 0 90px rgba(0, 217, 255, 0.55),
+                0 0 180px rgba(0, 217, 255, 0.35);
+
+            animation:
+                bulbPulse 3s ease-in-out infinite;
+
+            z-index: 2;
+
+        }
+
+        /* =========================
+AMBIENT LIGHT CONE
+========================= */
+
+        /* .lamp-glow {
+
+            position: absolute;
+
+            top: 70px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            width: 850px;
+            height: 850px;
+
+            background:
+
+                conic-gradient(from 180deg at 50% 0%,
+                    rgba(0, 217, 255, 0.22),
+                    rgba(0, 217, 255, 0.08),
+                    transparent 55%);
+
+            filter:
+                blur(60px);
+
+            opacity: 1;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            transition:
+                1s ease;
+
+        } */
+
+        .lamp-glow {
+
+            position: absolute;
+
+            top: 80px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            width: 900px;
+            height: 700px;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            opacity: 1;
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+
+            overflow: hidden;
+
+        }
+
+        /* MAIN LIGHT */
+
+        .lamp-glow::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            top: 0;
+
+            transform:
+                translateX(-50%);
+
+            width: 700px;
+            height: 700px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(circle,
+                    rgba(0, 217, 255, 0.18) 0%,
+                    rgba(0, 217, 255, 0.10) 25%,
+                    rgba(0, 217, 255, 0.04) 50%,
+                    transparent 75%);
+
+            filter:
+                blur(60px);
+
+        }
+
+        /* LIGHT CONE */
+
+        .lamp-glow::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            top: -20px;
+
+            transform:
+                translateX(-50%);
+
+            width: 500px;
+            height: 650px;
+
+            background:
+
+                linear-gradient(to bottom,
+                    rgba(0, 217, 255, 0.18),
+                    rgba(0, 217, 255, 0.08),
+                    transparent 75%);
+
+            clip-path:
+                polygon(45% 0%,
+                    55% 0%,
+                    100% 100%,
+                    0% 100%);
+
+            filter:
+                blur(35px);
+
+            opacity: 0.7;
+
+        }
+
+        /* =========================
+PULSE
+========================= */
+
+        @keyframes bulbPulse {
+
+            0% {
+
+                transform:
+                    scale(1);
+
+                filter:
+                    brightness(1);
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.08);
+
+                filter:
+                    brightness(1.15);
+
+            }
+
+            100% {
+
+                transform:
+                    scale(1);
+
+                filter:
+                    brightness(1);
+
+            }
+
+        }
+
+        /* =========================
+SWING
+========================= */
+
+        .swing {
+
+            animation:
+                swing 2s ease-in-out;
+
+        }
+
+        @keyframes swing {
+
+            0% {
+                transform: rotate(10deg);
+            }
+
+            25% {
+                transform: rotate(-8deg);
+            }
+
+            50% {
+                transform: rotate(6deg);
+            }
+
+            75% {
+                transform: rotate(-4deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+
+        }
+
+        /* =========================
+BLACKOUT MODE
+========================= */
+
+        body {
+
+            transition:
+                background 1.4s cubic-bezier(.22, 1, .36, 1),
+                color 1.2s ease;
+
+        }
+
+        /* AURORA RETURN */
+
+        body:not(.blackout) .aurora-container {
+
+            opacity: 1;
+
+            filter: blur(0px);
+
+            transform: scale(1);
+
+        }
+
+        .blackout .aurora-container {
+
+            opacity: 0;
+
+            filter: blur(20px);
+
+            transform: scale(1.08);
+
+        }
+
+        /* UI RETURN */
+
+        body:not(.blackout) .hero-description,
+        body:not(.blackout) .typing-wrapper,
+        body:not(.blackout) .btn,
+        body:not(.blackout) nav {
+
+            transition-delay: 0.25s;
+
+        }
+
+        /* GLOBAL TRANSITIONS */
+
+        .grid-bg,
+        .aurora-container,
+        .lamp-glow,
+        .hero-description,
+        .typing-wrapper,
+        .btn,
+        .section,
+        nav,
+        .hero h1,
+        .logo {
+
+            transition:
+
+                opacity 1.4s cubic-bezier(.22, 1, .36, 1),
+                transform 1.2s cubic-bezier(.22, 1, .36, 1),
+                filter 1.4s ease,
+                text-shadow 1.4s ease,
+                background 1.4s ease;
+
+        }
+
+        /* DIM UI */
+
+        .blackout .hero-description,
+        .blackout .typing-wrapper,
+        .blackout .btn,
+        .blackout .section,
+        .blackout nav {
+
+            opacity: 0.05;
+
+        }
+
+        /* TURN OFF LIGHT */
+
+        .blackout .lamp::after {
+
+            background:
+
+                radial-gradient(circle,
+                    #1a1a1a,
+                    #080808);
+
+            box-shadow:
+                0 0 12px rgba(255, 255, 255, 0.05);
+
+            animation: none;
+
+        }
+
+        /* REMOVE AMBIENT LIGHT */
+
+        .blackout .lamp-glow {
+
+            opacity: 0;
+
+            transform:
+                translateX(-50%) scale(0.9);
+
+        }
+
+        /* HEADING */
+
+        .blackout h1 {
+
+            line-height: 0.92;
+
+            color: white;
+
+            font-weight: 900;
+
+            text-shadow:
+
+                0 0 4px #00d9ff,
+                0 0 10px #00d9ff,
+                0 0 20px rgba(0, 217, 255, 0.8),
+                0 0 40px rgba(0, 217, 255, 0.45);
+
+        }
+
+        /* INTELLIGENT RED */
+
+        .blackout .gradient-text {
+
+            background: none !important;
+
+            -webkit-text-fill-color: #ff3b3b;
+
+            color: #ff3b3b;
+
+            text-shadow:
+
+                0 0 4px #ff3b3b,
+                0 0 10px #ff3b3b,
+                0 0 22px rgba(255, 0, 0, 0.8),
+                0 0 40px rgba(255, 0, 0, 0.45);
+
+        }
+
+        /* NAVBAR LOGO */
+
+        .blackout .logo {
+
+            position: relative;
+
+            color: #ffffff;
+
+            text-shadow:
+
+                0 0 4px #fff,
+                0 0 10px #00d9ff,
+                0 0 20px #00d9ff,
+                0 0 40px rgba(0, 217, 255, 0.9);
+
+            z-index: 10;
+
+        }
+
+        /* NAVBAR BG */
+
+        .blackout .nav {
+
+            background:
+                rgba(0, 0, 0, 0.35);
+
+            border:
+                1px solid rgba(0, 217, 255, 0.08);
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .hero-tag {
+            color: #00d9ff;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 8vw, 7rem);
+            line-height: 0.92;
+            font-weight: 900;
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(90deg,
+                    #ffffff,
+                    #8be9ff,
+                    #7c8dff);
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* =========================
+                TYPING EFFECT
+        ========================= */
+
+        .typing-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            font-size: 1.7rem;
+            font-weight: 700;
+            flex-wrap: wrap;
+        }
+
+        .typing-prefix {
+            color: white;
+        }
+
+        #typing-text {
+            background:
+                linear-gradient(90deg,
+                    #00d9ff,
+                    #7c8dff,
+                    #9f5cff);
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            min-width: 340px;
+        }
+
+        .cursor {
+            color: #00d9ff;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-description {
+            color: var(--muted);
+            max-width: 700px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* =========================
+                 BUTTONS
+        ========================= */
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 16px 30px;
+            border-radius: 18px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background:
+                linear-gradient(135deg,
+                    #5b5fff,
+                    #00d9ff);
+            color: white;
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background:
+                rgba(255, 255, 255, 0.08);
+        }
+
+        /* =========================
+                    ORB
+        ========================= */
+
+        .hero-right {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* =========================
+                SECTION
+        ========================= */
+
+        .section {
+            padding: 120px 8%;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 50px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .section p {
+            color: var(--muted);
+        }
+
+        /* =========================
+                SKILLS  
+        ========================= */
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .skill {
+            padding: 14px 22px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* =========================
+                PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            padding: 32px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.35s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .project-card h3 {
+            margin-bottom: 18px;
+            font-size: 1.3rem;
+        }
+
+        /* =========================
+                CONTACT
+        ========================= */
+
+        .contact-buttons {
+
+            display: flex;
+
+            gap: 20px;
+
+            margin-top: 35px;
+
+            flex-wrap: wrap;
+
+        }
+
+        /* =========================
+                FOOTER
+        ========================= */
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+        }
+
+        /* =========================
+                RESPONSIVE
+        ========================= */
+
+        @media(max-width:770px) {
+
+            .custom-cursor,
+            .cursor-dot {
+                display: none;
+                left: 0;
+                top: 0;
+
+            }
+
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                gap: 70px;
+                padding-top: 140px;
+            }
+
+            .hero-left,
+            .hero-right {
+                width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .typing-wrapper {
+                justify-content: center;
+            }
+
+            .nav {
+                padding: 18px 24px;
+                width: 94%;
+            }
+
+            .nav nav {
+                display: none;
+            }
+
+            .orb {
+                width: 280px;
+                height: 280px;
+            }
+        }
+
+        .typing-cursor {
+            color: #00d9ff;
+            margin-left: 2px;
+            animation: blink 0.8s infinite;
+        }
+
+        /* HOVER EFFECT */
+        .cursor-hover {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 217, 255, 0.08);
+            border: 1px solid #00d9ff;
+
+        }
+
+        .custom-cursor {
+
+            width: 40px;
+            height: 40px;
+
+            position: fixed;
+
+            left: 0;
+            top: 0;
+
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            border:
+                1.5px solid rgba(0, 217, 255, 0.7);
+
+            pointer-events: none;
+
+            z-index: 999999;
+
+            backdrop-filter: blur(4px);
+
+            box-shadow:
+                0 0 25px rgba(0, 217, 255, 0.4);
+
+            transition:
+
+                width 0.25s ease,
+                height 0.25s ease,
+                background 0.25s ease,
+                border 0.25s ease;
+
+            will-change:
+                transform, left, top;
+
+            mix-blend-mode: screen;
+
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transform: translate(-50%, -50%);
+            background: #00d9ff;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999999;
+            box-shadow:
+                0 0 18px #00d9ff,
+                0 0 40px #00d9ff;
+        }
+    </style>
+
 </head>
 
 <body>
-    <!-- BG GRID -->
-    <!-- <canvas id="bg-particles"></canvas>   -  not used currently -->
 
-    <!-- AURORA BG -->
-    <div class="aurora-bg">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="grid-bg"></div>
+    <div class="aurora-container">
+        <div class="aurora"></div>
+        <div class="aurora"></div>
+        <div class="aurora"></div>
     </div>
 
-
-    <!-- SCROLL PROGRESS -->
-    <div id="scroll-bar"></div>
-
-    <!-- NAV -->
     <header class="nav">
-        <h1 class="logo">Ripudaman</h1>
+        <div class="logo">
+            Ripudaman
+        </div>
         <nav>
-            <a href="#top">Home</a>
+
+            <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
+
         </nav>
+
     </header>
 
-    <!-- HERO -->
-    <section class="hero reveal">
-        <h2 class="glitch-name" data-text="Ripudaman">
-            <span id="type-text"></span>
-        </h2>
-        <p>AI Developer • Full Stack Engineer • Builder of Real-World Tech</p>
-        <a href="#contact" class="cta-lt-work">Let’s Work</a>
-    </section>
+    <main>
 
-    <!-- ABOUT -->
-    <section id="about" class="section reveal">
-        <h2>About Me</h2>
-        <p>
-            I build AI-powered systems, full-stack applications, and real-world automation projects.
-            Focused on performance, clean UX, and scalable architecture.
-        </p>
-    </section>
+        <section class="hero" id="home">
+            <div class="hero-left">
+                <div class="hero-tag">
+                    AI Systems Engineer
+                </div>
+                <h1>
+                    Building
+                    <span class="gradient-text">
+                        Intelligent
+                    </span>
+                    Infrastructure
+                </h1>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section reveal">
-        <h2>Skills</h2>
-        <div class="skills">
+                <div class="typing-wrapper">
+                    <span class="typing-prefix">
+                        I build
+                    </span>
+                    <span id="typing-text"></span>
+                    </span>
+                </div>
 
-            <!-- AI / Data -->
-            <span class="rgb-skill">Python</span>
-            <span class="rgb-skill">Machine Learning</span>
-            <span class="rgb-skill">OpenCV</span>
-            <span class="rgb-skill">YOLO</span>
-            <span class="rgb-skill">OCR Systems</span>
-            <span class="rgb-skill">Data Pipelines</span>
+                <p class="hero-description">
 
-            <!-- Full Stack -->
-            <span class="rgb-skill">HTML5</span>
-            <span class="rgb-skill">CSS3</span>
-            <span class="rgb-skill">JavaScript</span>
-            <span class="rgb-skill">Node.js</span>
-            <span class="rgb-skill">REST APIs</span>
-            <span class="rgb-skill">JWT Auth</span>
-            <span class="rgb-skill">MySQL</span>
-            <span class="rgb-skill">Git & GitHub</span>
+                    AI Developer, Full Stack Engineer, and builder focused on
+                    computer vision, intelligent automation systems,
+                    scalable architectures, and real-world AI products.
 
-            <!-- IoT / Hardware -->
-            <span class="rgb-skill">ESP32</span>
-            <span class="rgb-skill">ESP8266</span>
-            <span class="rgb-skill">Arduino</span>
-            <span class="rgb-skill">IoT Systems</span>
-            <span class="rgb-skill">GPS Tracking</span>
-            <span class="rgb-skill">Motor Automation</span>
-            <span class="rgb-skill">Water Level Systems</span>
-
-            <!-- Finance / Systems -->
-            <span class="rgb-skill">Trading Models</span>
-            <span class="rgb-skill">Risk Management</span>
-            <span class="rgb-skill">Position Sizing</span>
-
-            <!-- DevOps -->
-            <span class="rgb-skill">GitHub Pages</span>
-            <span class="rgb-skill">Linux</span>
-            <span class="rgb-skill">Performance Tuning</span>
-
-        </div>
-
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section reveal">
-        <h2>Projects</h2>
-        <div class="cards">
-            <!-- Project 1 -->
-            <div class="card">
-                <h3>AI Newspaper Scanner</h3>
-                <p>OCR-based system that extracts and analyzes news articles in real time.</p>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="card">
-                <h3>Custom Web Browser</h3>
-                <p>Lightweight desktop browser built with a custom UI layer, tab management,
-                    and performance-optimized rendering for fast navigation and low memory usage.</p>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="card">
-                <h3>AI - Complaince Scanner</h3>
-                <p>
-                    AI-powered document analysis system that scans legal notices, government
-                    communications, and compliance documents to flag risks, missing clauses,
-                    and regulatory inconsistencies.
                 </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="btn btn-primary">
+
+                        View Projects
+
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+
+                        Contact Me
+
+                    </a>
+
+                </div>
+
             </div>
 
-            <!-- Project 4 -->
-            <div class="card">
-                <h3>Trading Risk Engine</h3>
-                <p>Position sizing and capital management model for leveraged trading.</p>
+            <div class="lamp-container" id="lampContainer">
+                <div class="wire" id="wire"></div>
+                <div class="lamp" id="lampToggle">
+                    <div class="lamp-glow"></div>
+                </div>
             </div>
 
-            <!-- Project 5 -->
-            <div class="card">
-                <h3>Human Pose Estimation System</h3>
-                <p>Real-time computer vision system that detects and tracks human body joints
-                    and skeletal keypoints from video streams for activity analysis, posture
-                    detection, and motion-based applications.</p>
+        </section>
+
+        <section class="section" id="about">
+
+            <div class="glass-card">
+
+                <h2 class="section-title">
+                    About Me
+                </h2>
+
+                <p>
+
+                    I build AI-powered systems, computer vision applications,
+                    intelligent automation tools, and scalable web technologies.
+                    Focused on solving real-world problems using clean architecture,
+                    high-performance engineering, and modern UI systems.
+
+                </p>
+
             </div>
-        </div>
-    </section>
 
-    <section id="contact" class="section reveal">
-        <h2>Contact</h2>
-        <p>Let’s build something real together.</p>
-        <a href="https://github.com/ripudamanss" target="_blank" class="cta">GitHub</a>
-        </div>
-        </a>
-        <a href="mailto:damanripu8949@gmail.com" class="cta-gmail">Email Me</a>
-    </section>
+        </section>
 
-    <!-- AI Chatbot -->
-     <div id="chatbot-container" class="chatbot">
-    <div class="ai-chat">
-        <div class="ai-header">
-            <span>Ask Me Anything 🤖</span>
-            <button id="chatbot-close">✕</button>
-        </div>
+        <section class="section" id="skills">
 
-        <div id="ai-messages"></div>
-        <div class="ai-input">
-            <input id="ai-question" placeholder="Ask about my projects, skills, or experience..." />
-            <button onclick="askAI()">Send</button>
-        </div>
-    </div>
-    </div>
-    <button id="chatbot-open" class="chatbot-open">💬</button>
+            <h2 class="section-title">
+                Skills
+            </h2>
 
-    <!-- FOOTER -->
+            <div class="skills-grid">
+
+                <div class="skill">Machine Learning</div>
+                <div class="skill">YOLO</div>
+                <div class="skill">OpenCV</div>
+                <div class="skill">TensorFlow</div>
+                <div class="skill">PyTorch</div>
+                <div class="skill">Ollama Models Trained</div>
+                <div class="skill">PYQT5 & PYQT6</div>
+
+
+                <div class="skill">HTML5</div>
+                <div class="skill">CSS3</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Node.js</div>
+
+                <div class="skill">Fast API</div>
+                <div class="skill">JWT Auth</div>
+                <div class="skill">MySQL</div>
+
+
+                <div class="skill">GitHub</div>
+                <div class="skill">Automation</div>
+
+                <div class="skill">ESP32</div>
+                <div class="skill">ESP8266</div>
+                <div class="skill">IoT Systems</div>
+
+            </div>
+            <br>
+            <h2 class="section-title">Languages</h2>
+            <div class="skills-grid">
+                <div class="skill">Python</div>
+                <div class="skill">HTML5</div>
+                <div class="skill">C</div>
+                <div class="skill">C++</div>
+                <div class="skill">JavaScript</div>
+            </div>
+
+        </section>
+
+        <section class="section" id="projects">
+
+            <h2 class="section-title">
+                Projects
+            </h2>
+
+            <div class="projects-grid">
+
+                <article class="project-card">
+
+                    <h3>
+                        AI Newspaper Scanner
+                    </h3>
+
+                    <p>
+                        OCR-based intelligent scanning system that extracts,
+                        processes, and analyzes newspapers in real time.
+                    </p>
+
+                </article>
+
+                <article class="project-card">
+
+                    <h3>
+                        Custom Web Browser
+                    </h3>
+
+                    <p>
+                        Lightweight browser with optimized rendering,
+                        custom UI layers, and performance-focused architecture.
+                    </p>
+
+                </article>
+
+                <article class="project-card">
+
+                    <h3>
+                        AI Compliance Scanner
+                    </h3>
+
+                    <p>
+                        AI document analysis engine for legal and compliance
+                        risk detection in regulatory communications.
+                    </p>
+
+                </article>
+
+                <article class="project-card">
+
+                    <h3>
+                        Billing Software
+                    </h3>
+
+                    <p>
+                        Designed to enhance Billing System
+                        directly into client's Smartphone.
+                    </p>
+
+                </article>
+
+                <article class="project-card">
+
+                    <h3>
+                        Pose Estimation System
+                    </h3>
+
+                    <p>
+                        Real-time body tracking and motion analysis
+                        system using computer vision and skeletal detection.
+                    </p>
+
+                </article>
+
+                <article class="project-card">
+
+                    <h3>
+                        Student Management System | CRUD
+                    </h3>
+
+                    <p>
+                        It is an Real Time Tracking or Student
+                        and manage there Schedule and Reminders
+                        essential stuffs directly to Student and
+                        their parents.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="section" id="contact">
+
+            <div class="glass-card">
+
+                <h2 class="section-title">
+                    Contact
+                </h2>
+
+                <p>
+                    Let’s build intelligent systems and real-world products together.
+                </p>
+
+                <div class="contact-buttons">
+
+                    <a href="https://github.com/ripudamanss" target="_blank" class="btn btn-primary">
+
+                        GitHub
+
+                    </a>
+
+                    <a href="mailto:damanripu8949@gmail.com" class="btn btn-secondary">
+
+                        Email Me
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
     <footer class="footer">
-        <p>© 2026 Ripudaman • Built with Code & Coffee ☕</p>
+
+        © 2026 Ripudaman • Built with AI & Engineering
+
     </footer>
 
-    <script src="js/script.js"></script>
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+    <script>
 
+        /* =========================
+        TYPING EFFECT
+        ========================= */
+
+        const words = [
+
+            "AI Systems",
+            "Computer Vision",
+            "Automation",
+            "Neural Interfaces",
+            "Scalable Infrastructure"
+
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const typingText =
+            document.getElementById("typing-text");
+
+        function typeEffect() {
+
+            const currentWord =
+                words[wordIndex];
+
+            if (!isDeleting) {
+
+                charIndex++;
+
+            }
+            else {
+
+                charIndex--;
+
+            }
+
+            typingText.innerHTML =
+                currentWord.substring(0, charIndex) +
+                '<span class="typing-cursor">|</span>';
+
+            if (!isDeleting &&
+                charIndex === currentWord.length) {
+
+                isDeleting = true;
+
+                setTimeout(typeEffect, 1400);
+
+                return;
+
+            }
+
+            if (isDeleting &&
+                charIndex === 0) {
+
+                isDeleting = false;
+
+                wordIndex++;
+
+                if (wordIndex >= words.length) {
+
+                    wordIndex = 0;
+
+                }
+
+            }
+
+            setTimeout(
+                typeEffect,
+                isDeleting ? 45 : 90
+            );
+
+        }
+
+        typeEffect();
+
+        /* =========================
+        SMOOTH AURORA
+        ========================= */
+        const auroras = document.querySelectorAll(".aurora");
+        let currentTheme = "";
+        window.addEventListener("scroll", () => {
+            const y = window.scrollY;
+            if (y < 700 && currentTheme !== "hero") {
+                currentTheme = "hero";
+                auroras[0].style.background = "#5b5fff";
+                auroras[1].style.background = "#00d9ff";
+                auroras[2].style.background = "#9f5cff";
+            }
+            else if (y >= 700 && y < 1600 && currentTheme !== "about") {
+                currentTheme = "about";
+                auroras[0].style.background = "#00ffb7";
+                auroras[1].style.background = "#00c3ff";
+                auroras[2].style.background = "#0051ff";
+            }
+
+            else if (y >= 1600 && y < 2600 && currentTheme !== "projects") {
+                currentTheme = "projects";
+                auroras[0].style.background = "#ff00c8";
+                auroras[1].style.background = "#8b5cf6";
+                auroras[2].style.background = "#ff5f6d";
+            }
+
+            else if (y >= 2600 && currentTheme !== "contact") {
+                currentTheme = "contact";
+                auroras[0].style.background = "#ff7b00";
+                auroras[1].style.background = "#ff006e";
+                auroras[2].style.background = "#8338ec";
+            }
+
+        });
+
+        const cursor =
+            document.querySelector(".custom-cursor");
+        const dot =
+            document.querySelector(".cursor-dot");
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        let cursorX = 0;
+        let cursorY = 0;
+
+        /* TRACK REAL MOUSE */
+
+        window.addEventListener("mousemove", (e) => {
+
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            /* SMALL DOT */
+
+            dot.style.left = mouseX + "px";
+            dot.style.top = mouseY + "px";
+
+        });
+
+        /* SMOOTH FOLLOW */
+
+        function animateCursor() {
+
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+
+            cursor.style.left = cursorX + "px";
+            cursor.style.top = cursorY + "px";
+
+            requestAnimationFrame(animateCursor);
+
+        }
+
+        animateCursor();
+
+        /* HOVER EFFECT */
+
+        const hoverItems =
+            document.querySelectorAll(
+                "a, button, .btn, .skill, .project-card"
+            );
+
+        hoverItems.forEach((item) => {
+
+            item.addEventListener("mouseenter", () => {
+
+                cursor.classList.add("cursor-hover");
+
+            });
+
+            item.addEventListener("mouseleave", () => {
+
+                cursor.classList.remove("cursor-hover");
+
+            });
+
+        });
+
+    </script>
+
+    <!-- SCRIPT FOR LAMP -->
+    <script>
+
+        const lamp = document.getElementById("lampToggle");
+        const lampContainer = document.getElementById("lampContainer");
+        const wire = document.getElementById("wire");
+
+        let isDragging = false;
+        let startY = 0;
+        let currentPull = 0;
+        let darkMode = false;
+
+        /* =========================
+                DRAG START
+        ========================= */
+
+        lamp.addEventListener("mousedown", (e) => {
+
+            isDragging = true;
+            startY = e.clientY;
+            lamp.style.cursor = "grabbing";
+
+        });
+
+        /* =========================
+                  DRAGGING
+        ========================= */
+
+        window.addEventListener("mousemove", (e) => {
+
+            if (!isDragging) return;
+            currentPull = e.clientY - startY;
+
+            if (currentPull < 0)
+                currentPull = 0;
+
+            if (currentPull > 180)
+                currentPull = 180;
+
+            /* MOVE LAMP */
+
+            lampContainer.style.transform = `translateY(${currentPull}px)`;
+
+            /* STRETCH WIRE */
+
+            wire.style.height = `${180 + currentPull}px`;
+
+        });
+
+        /* =========================
+                RELEASE
+        ========================= */
+
+        window.addEventListener("mouseup", () => {
+
+            if (!isDragging) return;
+            isDragging = false;
+            lamp.style.cursor = "grab";
+
+            /* AUTO GO UP */
+
+            lampContainer.style.transition = "transform 0.8s cubic-bezier(.17,.89,.32,1.28)";
+
+            wire.style.transition = "height 0.8s cubic-bezier(.17,.89,.32,1.28)";
+
+            /* RESET */
+
+            lampContainer.style.transform = "translateY(0px)";
+
+            wire.style.height = "180px";
+
+            /* SWING */
+
+            lampContainer.classList.add("swing");
+            setTimeout(() => {
+                lampContainer.classList.remove("swing");
+            }, 2000);
+
+            /* BLACKOUT TOGGLE */
+
+            darkMode = !darkMode;
+
+            const switchOn = document.getElementById("switchOnSound");
+            const switchOff = document.getElementById("switchOffSound");
+
+            if (darkMode) {
+                switchOff.currentTime = 0;
+                switchOff.play();
+            }
+            else {
+                switchOn.currentTime = 0;
+                switchOn.play();
+            }
+
+            document.body.classList.toggle("blackout");
+
+            /* LAMP OFF */
+
+            if (darkMode) {
+
+                lamp.style.background = "#111";
+
+                lamp.style.boxShadow = "0 0 20px rgba(255,255,255,0.08)";
+            }
+
+            /* LAMP ON */
+
+            else {
+
+                lamp.style.background = "radial-gradient(circle,#00d9ff,#007cf0)";
+                lamp.style.boxShadow =
+                    `
+                0 0 80px rgba(0,217,255,0.7),
+                0 0 160px rgba(0,217,255,0.35)
+                `;
+                lamp.style.transition = "all 1.2s cubic-bezier(.22,1,.36,1)";
+            }
+        });
+    </script>
+
+    <audio id="switchOnSound" src="/assets/switch_on.mp3"></audio>
+    <audio id="switchOffSound" src="/assets/switch_off.mp3"></audio>
 </body>
 
 </html>
